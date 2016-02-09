@@ -60,7 +60,7 @@ module.exports.init = function( app, conf, express ){
 
 		glob( dir_uploads+"/*.*", {}, function (er, files) {
   			files = files.filter(function(itm){ 
-  				return path.basename(itm).substr(0,6)==='thumb-';
+  				return path.basename(itm).substr(0,6) != 'thumb-';
   			});
   			//console.log('files', files);
 
