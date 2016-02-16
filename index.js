@@ -6,7 +6,7 @@ var util 		= require('util');
 var path 		= require('path');
 var multiparty  = require('multiparty');
 var bytes 		= require('bytes');
-var glob 		= require("glob");
+var glob 		= require('glob');
 var archiver 	= require('archiver');
 
 var dir_uploads = '';
@@ -77,32 +77,3 @@ module.exports.init = function( app, conf, express ){
 	});
 	console.log( chalk.green('+ images ')+ 'download' +' on /pub/zip/images');
 }
-
-/*
-var get_fn = function(req, res){
-	var file = path.normalize( dir_uploads +'/'+ req.params.id );
-
-	if(DEBUG>2) console.log('GET', route, req.params.id, " -> ", file );
-
-	fs.stat(file, function(err, stats) {
-		console.log("fs.stat cb:", err, stats);
-
-		if( err === null && stats.isFile()) {
-			console.log('file');
-			
-			res.sendFile(file, {dotfiles:'deny'}, function (err) {
-				if(err){
-					console.log("sendFile error:", err);
-					//return res.status(500).send('');
-				}
-			});
-
-		}else{
-			
-			if(DEBUG>2) console.log('404:', file );
-			return res.status(404).send('');
-		}
-		
-	});
-};
-*/
